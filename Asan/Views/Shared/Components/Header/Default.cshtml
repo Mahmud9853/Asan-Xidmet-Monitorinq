@@ -1,0 +1,22 @@
+﻿@model Header
+
+<div class="mx-5 col-lg-6 d-flex justify-content-center upmenu ">
+    <img class="logom" src="~/img/@Model?.Image" style="width: 49px;
+                        height: 57px;
+                        margin-top: 19px;">
+    <div class="mx-3 ">
+        <h1 class="logop">@Model?.Title</h1>
+    </div>
+</div>
+<div class="col-lg-6 d-flex justify-content-center w-25 mobile">
+    <span class="mx-2 my-3">
+       @Html.Raw(Model?.Svg)
+    </span>
+
+
+    @*<i class="fa-solid fa-mobile-screen-button icon"></i>*@
+    <div class="sos">
+        @Model?.Phone<p class="sos1">@Model?.Text</p>
+    </div>
+
+</div>

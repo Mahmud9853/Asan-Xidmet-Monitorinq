@@ -1,0 +1,22 @@
+﻿@model AboutSlider
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<div class="container ">
+    <h1 class="text-center mb-5">@Model.Title</h1>
+    <div class="row d-flex justify-content-around mb-5 p-3">
+
+        <div class="col-md-6">
+            <img src="~/img/@Model.Image" class="w-100" alt="Alternate Text" />
+        </div>
+        <div class="col-md-6">
+            <p>@Model.Description</p>
+
+        </div>
+    </div>
+</div>
+<a class="btn btn-outline-info mx-2 btn-rounded" asp-controller="AboutSlider" asp-action="Index">go Back</a>
+
+
+

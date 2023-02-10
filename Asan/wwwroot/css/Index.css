@@ -1,0 +1,360 @@
+
+.aboutslider {
+    background-image: linear-gradient(to bottom, white 51%, #00AAE2 52%);
+    display: flex;
+    justify-content: space-around;
+    bottom: 155px;
+}
+.title h1 {
+    display: none;
+}
+.title .col-md-6 {
+    width:100%!important;
+}
+.pageb {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: #383838;
+}
+.button {
+    background: #00AAE2;
+    border-radius: 32px;
+    display: flex;
+    justify-content: center;
+    margin-top: 166px;
+    margin-right: 20px;
+}
+.button:hover {
+    opacity:0.7;
+    background: #00AAE2;
+    color:white;
+
+}
+.photo {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.newscard {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #383838;
+    margin-top: 69px;
+}
+.placeh::placeholder {
+    color: #FFFFFF;
+}
+.newsbox {
+    width: 90%;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);
+    border-radius: 10px;
+}
+
+.news {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 50px;
+    color: #383838;
+}
+.owl-item{
+    background:transparent;
+}
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+  #owl-demo .item{
+    margin: 3px;
+  }
+
+  .active, .accordion:hover {
+ /*   background-color: #ccc; */
+  }
+  .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+.qanunvericilik{
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+color: #383838;
+}
+
+
+
+
+    
+
+       .height{
+        height: 100vh;
+       }
+       
+
+       .search{
+       position: relative;
+       box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+         
+       }
+
+       .search input{
+
+        height: 60px;
+        text-indent: 25px;
+        border: 2px solid #d6d4d4;
+
+
+       }
+
+
+       .search input:focus{
+
+        box-shadow: none;
+        border: 2px solid blue;
+
+
+       }
+
+       .search .fa-search{
+
+        position: absolute;
+        top: 20px;
+        left: 16px;
+
+       }
+
+       .search button{
+
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        width: 110px;
+        background: blue;
+
+       }
+.searchs{
+    top: 20px;
+    right: 314px;
+    position: absolute;
+    display: block;
+
+}
+.mobile{
+    margin-left:200px;
+    margin-top: 0px;
+}
+.sos1{
+    font-style: normal;
+     font-weight: 200;
+     font-size: 15px;
+}
+.sos{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 26px;
+    margin-top:19px;
+    color: #383838;
+}
+.icon{
+     font-size: 67px;
+     color: #C8C8C8;
+     margin: 14px 12px;
+}
+.logop{
+    margin-top:29px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 33px;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: 1} 
+    to {opacity: 1}
+  }
+.active, .dot:hover {
+   /* background-color: #fff;*/
+  }
+  
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    border:1px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+@media only screen and (max-width: 731px) and (min-width: 688px) {
+    .aboutslider {
+        background-image: linear-gradient(to bottom, white 51%, #00AAE2 52%);
+        display: flex;
+        justify-content: space-around;
+        bottom: 82px;
+    }
+}
+@media only screen and (max-width: 960px) and (min-width: 768px) {
+    .aboutslider {
+        background-image: linear-gradient(to bottom, white 51%, #00AAE2 52%);
+        display: flex;
+        justify-content: space-around;
+        bottom: 83px;
+    }
+}
+@media only screen and (min-width: 500px) {
+    .newsimg {
+        width: 200px;
+    }
+    .newsbox {
+        width: 100%;
+        height: 230px;
+        display: flex;
+        justify-content: center;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);
+        border-radius: 10px;
+    }
+    .newscard {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+        color: #383838;
+        margin-top: 25px;
+        margin-left:15px
+    }
+    .model {
+        width: 79vh;
+        height: 97vh;
+        text-align: center;
+        margin-left: 0px;
+        width: 79vh;
+        height: 97vh;
+        text-align: center;
+        margin-left: 0px;
+    }
+    .img{
+        width:100%;
+    }
+
+}
+    @media only screen and (max-width: 960px) and (min-width: 500px) {
+        .searchs {
+            top: 346px;
+            right: 185px;
+            position: absolute;
+        }
+
+       
+        .aboutslider {
+            background-image: linear-gradient(to bottom, white 51%, #00AAE2 52%);
+            display: flex;
+            justify-content: space-around;
+            bottom: 60px;
+        }
+
+        .upmenu {
+            margin-left: 10px;
+        }
+
+        .sos {
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 23px;
+            margin-top: 20px;
+            color: #383838;
+        }
+
+        .sos1 {
+            font-style: normal;
+            font-weight: 200;
+            font-size: 15px;
+            width: 100px;
+        }
+
+        .icon {
+        }
+
+        .logom {
+            width: 49px;
+            height: 57px;
+            margin-top: 19px;
+            margin-right: 30px;
+            margin-left: -132px;
+        }
+
+        .mobile {
+            margin-left: 297px;
+            position: relative;
+            bottom: 89px;
+        }
+
+        .logop {
+            margin-top: 29px;
+            /* margin-left: 0px;
+        margin-right: 470px; */
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 33px;
+            width: 60%;
+        }
+
+        .logo {
+            width: 29px;
+        }
+
+        .contactimg {
+            width: 100%;
+        }
+
+        .kart {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        /* .firstmenu{
+
+    } */
+    } 

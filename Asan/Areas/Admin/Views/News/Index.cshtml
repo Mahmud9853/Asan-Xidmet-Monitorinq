@@ -1,0 +1,86 @@
+﻿@model List<News>
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+                <div class="d-flex justify-content-end">
+                    <a asp-action="Create" class="btn btn-outline-info  btn-rounded">Create</a>
+                </div>
+                <div class="table-responsive "  id="CustomerGrid">
+                    <table class="table table-striped display nowrap" id="example"   style="width:100%" >
+                        <thead > 
+                            <tr>
+                                <th class="w-25">
+                                    Image
+                                </th>
+                                <th>
+                                    Title
+                                </th>
+                                <th class=" d-flex justify-content-end">
+                                    Action
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (News item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/img/@item.Image" class="w-50" />
+                                    </td>
+                                    <td style="width:52%;">
+
+                                        @item.Title
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-outline-info  btn-rounded details" asp-action="Detail"  asp-route-id="@item.Id">Detail</a>
+                                        <a class="btn btn-outline-danger  btn-rounded" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        <a class="btn btn-outline-success  btn-rounded" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @*<div id="partialModal" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Customer Details Form</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div id="partialModal" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Customer Details Form</h5>
+                                    <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

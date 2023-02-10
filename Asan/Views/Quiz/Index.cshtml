@@ -1,0 +1,77 @@
+﻿@model List<Quiz>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main style="margin-bottom:100px;">
+
+    <div class="container">
+        <div class="row " style="display: flex;justify-content: space-evenly;">
+            <div class="col-md-12 my-5">
+                <h1 class="mt-5" style="font-family: 'Noto Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 28px;
+                color: #383838;">
+                    Sual Cavab
+                </h1>
+
+            </div>
+            @foreach (Quiz quiz in Model)
+            {
+
+            <div class="col-md-5 my-3" style=" background: #FFFFFF;
+                box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);
+                border-radius: 10px;">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <img class="mt-5" src="~/img/@quiz.Image" style="float: left;" alt="">
+
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="my-4" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 24px;
+                        line-height: 28px;
+                        display: flex;
+                        justify-content: flex-end;
+                        margin-right: 30px;">
+                            Sual @quiz.Number
+                        </h1>
+                        <p style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 28px;
+                        color: #383838;    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;">@quiz.Question</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 my-3" style="background: #00AAE2;box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);border-radius: 10px;">
+
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-12">
+                    <h1 class="my-4 mx-2" style="color:#ffff;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 28px;">
+                        Cavab @quiz.Number
+                    </h1>
+                    <p class=" mx-2" style="font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 28px;color:#ffff;">@quiz.Answer</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</main>

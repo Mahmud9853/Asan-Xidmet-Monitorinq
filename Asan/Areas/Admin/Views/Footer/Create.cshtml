@@ -1,0 +1,30 @@
+﻿
+@model Information
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo" for="exampleInputName1"></label>
+                        <input asp-for="Photo" class="form-control">
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+                    <div class="form-group my-3">
+                        <label asp-for="Title" for="exampleInputName1"></label>
+                        <input asp-for="Title" type="text" class="form-control">
+                        <span asp-validation-for="Title"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Footer" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

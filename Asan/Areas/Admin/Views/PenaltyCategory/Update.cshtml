@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+
+@model PenaltyCategory
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+               
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Title" for="exampleInputName1"></label>
+                        <input asp-for="Title" class="form-control">
+                        <span asp-validation-for="Title"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2 my-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="PenaltyCategory" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

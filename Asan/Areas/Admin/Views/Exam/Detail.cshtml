@@ -1,0 +1,27 @@
+﻿@model Exam
+
+@{
+    ViewData["Title"] = "Detail";
+}
+<div class="container ">
+    <div class="row d-flex justify-content-around mb-5 p-3">
+
+        <div class="col-md-6">
+            <h1 class="text-center mb-5" style="font-size:20px;">@Model.TitleFirst</h1>
+            <div>
+                @Html.Raw(Model.SvgFirst)
+            </div>
+      
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-center mb-5" style="font-size:20px;">@Model.TitleSecond</h1>
+            <div>
+                @Html.Raw(Model.SvgSecond)
+            </div>
+            </div>
+        </div>
+</div>
+<a class="btn btn-outline-info mx-2 btn-rounded" asp-controller="Exam" asp-action="Index">go Back</a>
+
+
+

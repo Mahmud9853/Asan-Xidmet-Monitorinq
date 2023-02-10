@@ -1,0 +1,25 @@
+﻿@model Legislation
+@{
+    ViewData["Title"] = "DetailSlider";
+}
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 my-4 text-center"><h1>@Model.Title</h1></div>
+
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+
+            <!-- fade css -->
+            <div class="myslide text-center">
+              @Html.Raw(Model.Svg)
+            </div>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="f-left col-md-12 col-sm-12 col-lg-12 w-100 my-4">
+            <p class="text-center">@Model.LegislationCategory.Image</p>
+        </div>
+    </div>
+</div>
+

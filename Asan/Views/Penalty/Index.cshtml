@@ -1,0 +1,142 @@
+﻿@model PenaltyVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main style="margin-top:100px;margin-bottom:200px;">
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-12 my-2">
+                <h1 class="category" style="font-family: 'Noto Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 28px;
+                color: #383838;">
+                    Cərimələr
+                </h1>
+                <span class="mb-4" style="font-family: 'Noto Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 28px;
+                color: #383838;">Azərbaycan Respublikasının İnzibati Xətalar Məcəlləsindən çıxarış: </span>
+
+            </div>
+
+            <div class="col-md-12 my-5">
+                @foreach (PenaltyCategory penaltyCategory in Model.PenaltyCategory)
+                {
+                    <div class="row" style="background-color: #fff;">
+                        <a class="accordion text-decoration-none my-2" style="box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32); background-color: #fff;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 22px;
+                            color: #383838;">
+                            <img style="width:23px;" src="./img/Group.png" alt="" data-id="cat-@penaltyCategory.Id"> @*Əmək
+                            qanunvericiliyinin pozulması*@ @penaltyCategory.Title<i style="float: right;
+                                display: flex;
+                                align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                        </a>
+
+
+                        @foreach (Penalty penalty in penaltyCategory.Penalty.Where(x => x.IsDeactive))
+                        {
+
+                            <div class="panel" style="background-color: #fff;">
+                                <p data-id="cat-@penalty.PenaltyCategoryId">
+                                    @Html.Raw(penalty.Text)
+                                   
+
+                                </p>
+                            </div>
+                        }
+
+
+                        @*<a class="accordion text-decoration-none " style="box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32); background-color: #fff;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 22px;
+                            color: #383838;">
+                            <img style="width:23px;" src="./img/Group.png" alt=""> Maddə 602. Sahibkarlıq
+                            sahəsində aparılan yoxlamaların tənzimlənməsi və sahibkarların maraqlarının müdafiəsi
+                            haqqında qanunvericiliyin pozulması<i style="float: right;
+                                display: flex;
+                                align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                        </a>
+                        <div class="panel">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>*@
+
+                    </div>
+
+
+                }
+            </div>
+            <div class="col-md-12 my-2">
+                <span class="mb-4" style="font-family: 'Noto Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 28px;
+                color: #383838;">Azərbaycan Respublikasının Cinayət Məcəlləsindən çıxarış : </span>
+
+            </div>
+        </div>
+        @foreach (Category Category in Model.Category)
+        {
+    <div class="row" style="background-color: #fff;">
+
+        <a class=" accordion text-decoration-none  my-2" style="box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32); background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+            <img style="width:23px;" src="./img/Group.png" alt="" data-id="cat-@Category.Id"> @Category.Title<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+        </a>
+        @foreach (Fine fine in Category.Fines.Where(x => x.IsDeactive))
+        {
+            <div class="panel" data-id="cat-@fine.CategoryId" style=" background-color: #fff;">
+                <p>
+                    @Html.Raw(fine.Text)
+                    
+
+                </p>
+            </div>
+        }
+
+            @*<a class="accordion text-decoration-none " style="box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32); background-color: #fff;font-family: 'Noto Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 22px;
+                color: #383838;">
+                <img style="width:23px;" src="./img/Group.png" alt=""> Qeyd<i style="float: right;
+                    display: flex;
+                    align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+            </a>
+            <div class="panel">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>*@
+
+        </div>
+
+        }
+        </div>
+
+</main>

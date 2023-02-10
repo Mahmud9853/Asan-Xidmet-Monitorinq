@@ -1,0 +1,55 @@
+﻿@model List<Contract>
+    <div class="container my-4">
+        <div class="row" >
+            @foreach (Contract contract in Model)
+            {
+                <div class="col-md-3 col-sm-12 my-3 kart" >
+                    <div class="box d-flex p-4 h-100 flex-column text-center " id="CustomerGrid"  style="width: 18rem;border:none;background-color: #F3F3F3; border-radius:10px;">
+
+                        @*<div class="card-body" style="background: #F3F3F3;
+                    border-radius: 10px;  width: 298px;
+                    height: 368px;">*@
+                        <div class="text-center h-75 my-5">
+                            @Html.Raw(contract.Svg)
+                            <p class="card-text" style="margin-top: 55px;
+                                text-align: center;
+                                font-style: normal;
+                                font-weight: 500;
+                                font-size: 20px;
+                                line-height: 22px;
+                                text-align: center;
+                                color: #383838;">
+                                @contract.Text
+                            </p>
+                        </div>
+                        <a href="javascript:();" data-id="@contract.Id" class="btn details mt-auto"
+                           style="background-color:#00AAE2;border-radius:25px;padding: 6px 60px; margin-top:60px;">
+                            Ətraflı bax
+                        </a>
+                    </div>
+                </div>
+                @*</div>*@
+            }
+
+
+            @await Component.InvokeAsync("Modal")
+        </div>
+            <!--<div class="col-lg-12 my-5 d-flex justify-content-end">
+                <a id="loadmorebtn" class="btn btn-info text-decoration-none" style="font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: right;
+            color: #ffffff;">
+            Hamısına bax-->
+                @*<svg   width="18" height="10" viewBox="0 0 18 10" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path  d="M17 1L9 9L1 1" stroke="#383838" stroke-width="2" stroke-miterlimit="10"
+                      stroke-linecap="round" stroke-linejoin="round" />
+            </svg>*@
+                <!--</a>
+                <input type="hidden" id="Showscount" value="" />
+            </div>-->
+
+    </div>

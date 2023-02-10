@@ -1,0 +1,416 @@
+﻿@model AboutVM
+@{
+    ViewData["Title"] = "Legislation";
+}
+
+<main style="background-color: #fff;">
+    <div class="container my-5">
+        <div class="row" style="background-color: #fff;">
+            <h1 class="my-5 qanunvericilik category">Qanunvericilik</h1>
+            @foreach (LegislationCategory category in Model.LegislationCategories)
+            {
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;" data-id="cat-@category.Id">
+                    <img style="width:23px;" src="~/img/@category.Image" alt="">@category.Title <i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="product-item panel">
+                    <ul class="category" style="list-style: none;">
+                        @foreach (Legislation item in category.Legislations.Where(x => x.IsDeactive))
+                        {
+                            <li style=" display: flex;align-items: center;align-items: flex-end;" data-id="cat-@item.LegislationCategoryId">
+                                <span>
+                                    @Html.Raw(item.Svg)
+                                </span>
+                                <a asp-action="Download" asp-route-id="@item.Id" style="font-family: 'Noto Sans';
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 16px;
+                                    line-height: 22px;
+                                    margin-left:12px;
+                                    color: #383838;text-decoration: none;">
+                                    @item.Title
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            }
+
+            @*<li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ ŞƏHƏRSALMA VƏ TİKİNTİ MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MÜLKİ MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ VERGI MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MƏNZİL MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MİQRASİYA MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ CİNAYƏT MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                align-items: center;
+                align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-left:12px;
+                    color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ İNZİBATİ XƏTALAR MƏCƏLLƏSİ   </a>
+                        </li>*@
+
+
+            @*<div class="panel" style="background-color: #fff;">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+                    <img style="width:23px;" src="~/img/Group.png" alt=""> Məcəllələr<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="panel">
+                    <ul style="list-style: none;">
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ ƏMƏK MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ ŞƏHƏRSALMA VƏ TİKİNTİ MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MÜLKİ MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ VERGI MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MƏNZİL MƏCƏLLƏSİ</a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ MİQRASİYA MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ CİNAYƏT MƏCƏLLƏSİ  </a>
+                        </li>
+                        <li style="    display: flex;
+                    align-items: center;
+                    align-items: flex-end;">
+                            <span>
+                                <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3H14C15.1046 3 16 3.89543 16 5V17C16 18.1046 15.1046 19 14 19H2C0.89543 19 0 18.1046 0 17V5C0 3.89543 0.89543 3 2 3H5C5 1.34315 6.3431 0 8 0C9.6569 0 11 1.34315 11 3ZM9 3C9 3.55228 8.5523 4 8 4C7.4477 4 7 3.55228 7 3C7 2.44772 7.4477 2 8 2C8.5523 2 9 2.44772 9 3ZM2 7C2 6.44772 2.44772 6 3 6H13C13.5523 6 14 6.44772 14 7C14 7.55228 13.5523 8 13 8H3C2.44772 8 2 7.55228 2 7ZM3 10C2.44772 10 2 10.4477 2 11C2 11.5523 2.44772 12 3 12H13C13.5523 12 14 11.5523 14 11C14 10.4477 13.5523 10 13 10H3ZM3 14C2.44772 14 2 14.4477 2 15C2 15.5523 2.44772 16 3 16H6C6.5523 16 7 15.5523 7 15C7 14.4477 6.5523 14 6 14H3Z" fill="#00AAE2" />
+                                </svg>
+
+                            </span>
+
+                            <a href="#" style="font-family: 'Noto Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 22px;
+                        margin-left:12px;
+                        color: #383838;text-decoration: none;">AZƏRBAYCAN RESPUBLİKASININ İNZİBATİ XƏTALAR MƏCƏLLƏSİ   </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+                    <img style="width:23px;" src="~/img/Group.png" alt=""> Qanunlar<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="panel">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+                    <img style="width:23px;" src="~/img/Group.png" alt=""> Fərmanlar<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="panel">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+                    <img style="width:23px;" src="~/img/Group.png" alt=""> Qərarlar<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="panel">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <a class="accordion text-decoration-none " style=" background-color: #fff;font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #383838;">
+                    <img style="width:23px;" src="~/img/Group.png" alt=""> Qaydalar<i style="float: right;
+                        display: flex;
+                        align-items: center;" class="fa-solid fa-sharp fa-chevron-down"></i>
+                </a>
+                <div class="panel">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>*@
+
+
+        </div>
+    </div>
+
+
+</main>
+

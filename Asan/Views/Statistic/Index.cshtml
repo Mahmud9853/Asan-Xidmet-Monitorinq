@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model StatisticVM
+<main style="margin-bottom:100px;">
+
+    <div class="container">
+        <div class="row " style="display: flex; justify-content: space-around;">
+
+            <div class="col-md-12">
+                <h1 class="my-5">Statistik göstəricilər </h1>
+            </div>
+            <div class="col-md-5 my-2" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);border-radius: 10px;">
+                <div class="row ">
+
+                    <div class="col-md-12 ms-3">
+                        <span>
+                            <h2>235 <br> </h2> Keçirilmiş monitorinq
+                        </span>
+                    </div>
+                    @foreach (Static stat in Model.Statics)
+                    {
+
+                    <div class="row my-2" style="    display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background:@stat.Color;border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;">
+                            <span class="my-4">
+                                <h2>@stat.Number<br> </h2> @stat.Title
+                            </span>
+                        </div>
+                    </div>
+                    }
+                    @*<div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #D1D1D1; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;">
+                            <span class="my-4">
+                                <h2>398<br> </h2>Monitorinq edilmiş işəgötürənlərin sayı
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #D1D1D1; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;">
+                            <span class="my-4">
+                                <h2>16%<br> </h2>
+                                Qeyri-formal məşğulluq səviyyəsi
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #C9F4E8; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;">
+                            <span class="my-4">
+                                <h2>  203917<br> </h2>
+                                Monitorinqlərdən sonra yoxlanılmış işəgötürənlər üzrə imzalanmış müqavilə sayı
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #72D9BC; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;">
+                            <span class="my-4">
+                                <h2>    89 dəqiqə<br> </h2>
+                                Monitorinqə sərf olunan orta müddət
+                            </span>
+                        </div>
+                    </div>*@
+                </div>
+
+
+            </div>
+            <div class="col-md-5 my-2" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);border-radius: 10px;">
+                <div class="row ">
+
+                    <div class="col-md-12  ms-3">
+                        <span>
+                            <h2>505 <br> </h2>
+                            Maarifləndirici görüş
+                        </span>
+                    </div>
+                    @foreach (Statistic statistic in Model.Statistics)
+                    {
+
+                    <div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: @statistic.Color;border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;height: 200px;">
+                            <span class="my-4 " style="padding-top: 35px;">
+                                <h2>@statistic.Number<br> </h2>
+                                @statistic.Title
+                            </span>
+                        </div>
+                    </div>
+                    }
+                    @*<div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #D1D1D1; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;height: 200px;">
+                            <span class="my-4" style="padding-top: 35px;">
+                                <h2>29 tikinti obyekti<br> </h2>
+                                Abşeron rayonu
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row my-2" style="display: flex; justify-content: center;">
+                        <div class="col-md-11" style="display: flex;justify-content: flex-start; background: #D1D1D1; border-radius: 10px;font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 18px;height: 200px;">
+                            <span class="my-4" style="padding-top: 35px;">
+                                <h2>38 tikinti obyekti<br> </h2>
+                                Sumqayıt şəhəri
+                            </span>
+                        </div>
+                    </div>*@
+                </div>
+
+            </div>
+            <div class="col-md-11 my-5" style="background: #FFFFFF;box-shadow: 0px 3px 5px rgba(176, 190, 197, 0.32), 0px 8px 24px rgba(176, 190, 197, 0.32);border-radius: 10px;">
+                <h1 style="font-family: 'Noto Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 28px;
+                    display: flex;
+                    align-items: center;
+                    color: #383838;">
+                  @Model.StatisticImg.Title
+                </h1>
+                <span>@Model.StatisticImg.Name</span>
+                <div class="box" style="    display: flex;justify-content: center;">
+                    <img src="~/img/@Model.StatisticImg.Image" style="width: 97%; border-radius: 15px;" class="my-3" alt="">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+@model Quiz
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo" for="exampleInputName1"></label>
+                        <input asp-for="Photo" class="form-control">
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Number" for="exampleInputName1"></label>
+                        <input asp-for="Number" class="form-control">
+                        <span asp-validation-for="Number"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Question" for="exampleInputName1"></label>
+                        <input asp-for="Question" type="text" class="form-control">
+                        <span asp-validation-for="Question"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Answer" for="exampleInputName1"></label>
+                        <input asp-for="Answer" type="text" class="form-control">
+                        <span asp-validation-for="Answer"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2 my-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Exam" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+

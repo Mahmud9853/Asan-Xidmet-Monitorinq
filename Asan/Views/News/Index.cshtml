@@ -1,0 +1,45 @@
+﻿@model List<News>
+<main style="margin-bottom:100px;">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12">
+                <h1 class="news ">Xəbərlər</h1>
+            </div>
+            @foreach (News news in Model)
+            {
+
+            <div class="col-md-12 my-4 d-flex justify-content-center ">
+                <div class="newsbox">
+                    <div class="col-md-5 photo">
+                        <img src="~/img/@news.Image"  class="newsimg"alt="">
+                    </div>
+                    <div class="col-md-5">
+                        <p class="newscard">
+                            @news.Title
+                        </p>
+
+                    </div>
+                    <div class="col-md-2"> <a asp-controller="News" asp-action="Detail" asp-route-id="@news.Id" class="btn  button">Ətraflı oxu</a></div>
+
+                </div>
+            </div>
+            }
+            @*<div class="col-md-12 my-4 d-flex justify-content-center">
+                <div class="newsbox">
+                    <div class="col-md-5 photo">
+                        <img src="~/img/1636632196618d06845a012 2.png" alt="">
+                    </div>
+                    <div class="col-md-5">
+                        <p class="newscard">
+                            Əmək Münasibətlərinin Monitorinqi Mərkəzi maarifləndirici görüşləri davam etdirir
+                        </p>
+
+                    </div>
+                    <div class="col-md-2"> <a class="btn button">Ətraflı oxu</a></div>
+
+                </div>
+
+            </div>*@
+        </div>
+    </div>
+</main>

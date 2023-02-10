@@ -1,0 +1,50 @@
+﻿ @*@model Connect
+
+@section Default{
+
+        <form class="forms-sample" method="post" asp-action="Create" asp-controller="Home" enctype="multipart/form-data">
+            <div class="row my-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6">
+                    <textarea asp-for="Text" style=" resize: none; border-radius: 20px;
+                                        width: 95%;
+                                        padding: 16px 29px;
+                                        height: 325px;
+                                        outline: none;
+                                        border: none;" placeholder="Müraciətin mətni:" rows="6" type="text"></textarea>
+                    <span asp-validation-for="Text"></span>
+
+                </div>
+                <div class="col-md-6">
+                    <input asp-for="FullName" placeholder="Ad, Soyad" style="border-radius: 15px;
+                                        outline: none;
+                                        border: none;    width: 82%;
+            height: 13%;
+            padding: 16px;" class="my-3" type="text">
+                    <span asp-validation-for="FullName"></span>
+                    <input asp-for="Phone" placeholder="Əlaqə nömrəsi:" style="border-radius: 15px;
+                                        outline: none;
+                                        border: none;    width: 82%;
+            height: 13%;
+            padding: 16px;" class="my-3" type="number">
+                    <span asp-validation-for="Phone"></span>
+                    <input asp-for="Email" placeholder="Elektron poçt ünvanı:" style="border-radius: 15px;
+                                        outline: none;
+                                        border: none;    width: 82%;
+            height: 13%;
+            padding: 16px;" class="my-3" type="email">
+                    <span asp-validation-for="Email"></span>
+                    <div class="my-4">
+                        <button style="height: 13%;border-radius: 30px;width: 82%;"
+                                class="my-3 btn btn-success">
+                            Göndər
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+
+}*@

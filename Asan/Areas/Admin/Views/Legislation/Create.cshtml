@@ -1,0 +1,41 @@
+﻿@model Legislation
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="File" for="exampleInputName1"></label>
+                        <input asp-for="File" class="form-control">
+                        <span asp-validation-for="File"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title" for="exampleInputName1"></label>
+                        <input asp-for="Title" type="text" class="form-control">
+                        <span asp-validation-for="Title"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Svg" for="exampleInputName1"></label>
+                        <textarea asp-for="Svg" rows="6" type="text" class="form-control"></textarea>
+                        <span asp-validation-for="Svg"></span>
+                    </div>
+                    <select name="categoryId" class="form-select w-100 p-2 mb-4 my-2 text-center" aria-label="Default select example">
+                        <option selected>--Category--</option>
+                        @foreach (LegislationCategory category in ViewBag.LegislationCategories)
+                        {
+                            <option value="@category.Id">@category.Image @category.Title</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Legislation" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

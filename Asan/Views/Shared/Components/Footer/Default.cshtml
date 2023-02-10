@@ -1,0 +1,90 @@
+﻿@model FooterVM
+
+<div class="container-fluid" style="background: #F3F3F3;">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center" style="font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 33px;
+                            display: flex;
+                            justify-content: flex-start;
+                            margin-left: 46px;
+                            color: #383838;    margin-top: 30px;
+                             margin-bottom: 30px;">
+                        Faydalı keçidlər:
+                    </h1>
+                </div>
+            </div>
+            <ul style="list-style-type:none;">
+                @foreach (Information info in Model.Informations)
+                {
+                    <li style="margin-bottom: 30px;
+                            margin-left: 30px;display: flex; align-items: center;">
+                        <span>
+                            <img style="width: 40px;" src="~/img/@info.Image">
+                        </span>
+                      
+                        <a style="text-decoration: none;
+                                font-family: 'Noto Sans';
+                                font-style: normal;
+                                font-weight: 400;
+                                font-size: 12px;
+                                line-height: 16px;
+                                color: #383838;    margin-left: 20px;" href="#">
+                            @info.Title
+
+                        </a>
+
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+        <div class="col-md-3  my-5">
+
+            <ul style="list-style: none; margin-top:41px;">
+                @foreach (Informationuse use in Model.Informationuses)
+                {
+                <li style=" margin-bottom: 30px;
+                        margin-left: 30px;
+                        display:flex;align-items: center;">
+                    <a href="#" style="text-decoration:none;
+                            font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 16px;color: #383838;">
+                            <img src="~/img/@use.Image">@use.Title
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center" style="font-family: 'Noto Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 24px;
+                            line-height: 33px;
+                            display: flex;
+                            justify-content: flex-start;
+
+                            color: #383838;    margin-top: 30px;
+    margin-bottom: 30px;">
+                        Bizə yazın:
+                    </h1>
+                </div>
+                @await Component.InvokeAsync("Connect")
+            </div>
+        </div>
+
+
+    </div>
+</div>

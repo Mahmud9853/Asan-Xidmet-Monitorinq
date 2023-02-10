@@ -1,0 +1,65 @@
+﻿@model Regulation
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+                <div class="d-flex justify-content-end">
+                    @*<a asp-action="Create" class="btn btn-outline-info  btn-rounded">Create</a>*@
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+
+                                <th class="w-25">
+                                    Title
+                                </th>
+                 
+                                <th>
+                                    Statuse
+                                </th>
+                                <th class=" d-flex justify-content-end">
+                                    Action
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @Model.Title
+                                </td>
+                        
+                                <td style=" width: 45%;">
+                                    @if (Model.IsDeactive)
+                                    {
+                                        <div>Aktiv</div>
+                                    }
+                                    else
+                                    {
+                                        <div>Deaktiv</div>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-outline-info  btn-rounded" asp-action="Detail" asp-route-id="@Model.Id">Detail</a>
+                                    @if (Model.IsDeactive)
+                                    {
+                                        <a class="btn btn-outline-success  btn-rounded" asp-action="Activity" asp-route-id="@Model.Id">Activate</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-outline-danger  btn-rounded" asp-action="Activity" asp-route-id="@Model.Id">Deactivate</a>
+                                    }
+
+                                    <a class="btn btn-outline-success  btn-rounded" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+                                </td>
+
+                            </tr>
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿
+@model Exam
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="SvgFirst" for="exampleInputName1"></label>
+                        <input asp-for="SvgFirst" class="form-control">
+                        <span asp-validation-for="SvgFirst"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SvgSecond" for="exampleInputName1"></label>
+                        <input asp-for="SvgSecond" class="form-control">
+                        <span asp-validation-for="SvgSecond"></span>
+                        <div class="form-group">
+                            <label asp-for="TitleFirst" for="exampleInputName1"></label>
+                            <input asp-for="TitleFirst" type="text" class="form-control">
+                            <span asp-validation-for="TitleFirst"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TitleSecond" for="exampleInputName1"></label>
+                        <input asp-for="TitleSecond" type="text" class="form-control">
+                        <span asp-validation-for="TitleSecond"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2 my-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Exam" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

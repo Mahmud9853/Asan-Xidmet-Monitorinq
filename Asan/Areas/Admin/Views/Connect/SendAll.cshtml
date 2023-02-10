@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "SendAll";
+}
+
+@model MailVM
+<div class="container-fluid">
+    <div class="row clearfix">
+        <div class=" col-md-6 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="body">
+                    <form method="post">
+                        <div class="form-group form-float">
+                            <label class="form-label" style="display:flex;justify-content:center">Məzmun</label>
+                            <div class="form-line">
+                                <textarea rows="3" asp-for="Message" class="form-control"></textarea>
+                            </div>
+                            <span asp-validation-for="Message" class="font-bold col-pink"></span>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Göndər</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

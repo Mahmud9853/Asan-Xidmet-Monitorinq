@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model Fine
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Text" for="exampleInputName1"></label>
+                        <textarea rows="6" asp-for="Text" type="text" class="form-control"></textarea>
+                        <span asp-validation-for="Text"></span>
+                    </div>
+
+                    <select name="categoryId" class="form-select w-100 p-2 mb-4 my-2 text-center" aria-label="Default select example">
+                        <option selected>--Category--</option>
+                        @foreach (Category category in ViewBag.FineCategory)
+                        {
+                            <option value="@category.Id"> @category.Title</option>
+                        }
+                    </select>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Fine" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/ckeditor_4.20.1_full/ckeditor/ckeditor.js"></script>
+    <script> 
+        CKEDITOR.replace("Text");
+    </script>
+}
+

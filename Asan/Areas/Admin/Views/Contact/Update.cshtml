@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+
+@model Contact
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+                <div class="d-flex justify-content-between">
+
+                    <h4 class="card-title">UPDATE</h4>
+
+                    <img src="~/img/@Model?.Image" class="w-25" alt="Alternate Text" />
+                </div>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Photo" for="exampleInputName1"></label>
+                        <input asp-for="Photo" class="form-control">
+                        <span asp-validation-for="Photo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" for="exampleInputName1"></label>
+                        <input asp-for="PhoneNumber" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneCenter" for="exampleInputName1"></label>
+                        <input asp-for="PhoneCenter" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="PhoneCenter"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailCenter" for="exampleInputName1"></label>
+                        <input asp-for="EmailCenter" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="EmailCenter"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailAsan" for="exampleInputName1"></label>
+                        <input asp-for="EmailAsan" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="EmailAsan"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LocationFirst" for="exampleInputName1"></label>
+                        <input asp-for="LocationFirst" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="LocationFirst"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LocationTwo" for="exampleInputName1"></label>
+                        <input asp-for="LocationTwo" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="LocationTwo"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneSvg" for="exampleInputName1"></label>
+                        <input asp-for="PhoneSvg" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="PhoneSvg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneCenterSvg" for="exampleInputName1"></label>
+                        <input asp-for="PhoneCenterSvg" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="PhoneCenterSvg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailCenterSvg" for="exampleInputName1"></label>
+                        <input asp-for="EmailCenterSvg" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="EmailCenterSvg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailAsanSvg" for="exampleInputName1"></label>
+                        <input asp-for="EmailAsanSvg" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="EmailAsanSvg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LocationSvgFirst" for="exampleInputName1"></label>
+                        <input asp-for="LocationSvgFirst" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="LocationSvgFirst"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LocationSvgTwo" for="exampleInputName1"></label>
+                        <input asp-for="LocationSvgTwo" type="text" class="form-control" id="exampleInputName1">
+                        <span asp-validation-for="LocationSvgTwo"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2 my-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Contact" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

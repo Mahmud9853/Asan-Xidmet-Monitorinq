@@ -1,0 +1,66 @@
+﻿@model List<Connect>
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body ">
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-outline-success mx-2 btn-rounded " asp-action="SendAll" ><i class="fa-solid fa-envelope"></i></a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Fullname
+                                </th>
+                                <th>
+                                    Datetime
+                                </th>
+                                <th class=" d-flex justify-content-end">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Connect item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @item.FullName
+                                </td>
+                                <td>
+                                    @item.CreateTime.ToString("dd/MM/yyyy H:mm:ss")
+                                </td>
+                                <td class="d-flex justify-content-end ">
+                                    <a class="btn btn-outline-info mx-2 btn-rounded " asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+                                    <a class="btn btn-outline-danger mx-2 btn-rounded" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    <a class="btn btn-outline-success mx-2 btn-rounded" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                    @if (item.IsReading == false)
+                                    {
+
+                                        <a class="btn btn-outline-success mx-2 btn-rounded " asp-action="Count" asp-route-id="@item.Id"><i class="fa-solid fa-check"></i></a>
+
+                                    }
+
+                                    @*Əgər item.IsReading-dəki "== false" -u silsən onda else{}- ni aktiv etməlisən(yazmalısan)*@
+
+                                    @*else
+            {
+
+            <a class="btn btn-outline-danger mx-2 btn-rounded" asp-action="Count" asp-route-id="@item.Id"><i class="fa-solid fa-check"></i></a>
+
+            }*@
+                                    <a class="btn btn-outline-success mx-2 btn-rounded " asp-action="Send" asp-route-id="@item.Id" asp-route-email="@item.Email"><i class="fa-solid fa-envelope"></i></a>
+
+                                </td>
+
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

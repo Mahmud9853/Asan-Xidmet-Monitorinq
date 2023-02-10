@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+@model RegisterVM
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create User</h4>
+                <div asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="FullName" for="exampleInputName1"></label>
+                        <input asp-for="FullName" class="form-control">
+                        <span asp-validation-for="FullName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UserName" for="exampleInputName1"></label>
+                        <input asp-for="UserName" class="form-control">
+                        <span asp-validation-for="UserName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" for="exampleInputName1"></label>
+                        <input asp-for="Email" class="form-control">
+                        <span asp-validation-for="Email"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password" for="exampleInputName1"></label>
+                        <input asp-for="Password" class="form-control">
+                        <span asp-validation-for="Password"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" for="exampleInputName1"></label>
+                        <input asp-for="ConfirmPassword" class="form-control">
+                        <span asp-validation-for="ConfirmPassword"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2 my-2">Submit</button>
+                    <button class="btn btn-light" asp-controller="Service" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
